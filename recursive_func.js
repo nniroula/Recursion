@@ -74,5 +74,28 @@ function isPalindrome(str){
     return (str[0] === str[str.length - 1] && isPalindrome(str.slice(1, -1)));
 
 }
-console.log(isPalindrome("tacocat"));
-console.log(isPalindrome("tacodog"));
+// console.log(isPalindrome("tacocat"));
+// console.log(isPalindrome("tacodog"));
+
+/*
+Find Index
+Given an array and a string, return the index of that string in the array (or -1 if not present):
+
+let animals = ["duck", "cat", "pony"];
+
+findIndex(animals, "cat");  // 1
+findIndex(animals, "porcupine");   // -1
+
+*/
+
+function findIndex(arr, str, count = 0) {  // count stays as a default parameter
+    // Base case
+	if (arr.length < count){ 
+        return -1;
+    }
+    // normal case
+	if (arr[count] === str){
+        return count; 
+    }
+	return findIndex(arr, str, count + 1);
+}
