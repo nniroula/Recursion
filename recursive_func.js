@@ -55,4 +55,24 @@ function everyOther(str){
     // return str[0] + everyOther(str.slice(2, 3));
     return str[0] + everyOther(str.slice(n + 2));
 }
-console.log(everyOther("hello") );
+// console.log(everyOther("hello") );
+
+/*
+Is Palindrome?  // Palindrome means if it reads the same from the beginning as well as from the end of the word
+Write a function that returns true/false depending on whether passed-in string is a palindrome:
+
+isPalindrome("tacocat")  // true
+isPalindrome("tacodog")  // false
+
+*/
+
+function isPalindrome(str){
+    // base case
+    if(str.lenght === 0 || str.length === 1){
+        return true
+    }
+    return (str[0] === str[str.length - 1] && isPalindrome(str.slice(1, -1)));
+
+}
+console.log(isPalindrome("tacocat"));
+console.log(isPalindrome("tacodog"));
