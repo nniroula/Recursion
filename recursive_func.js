@@ -99,3 +99,25 @@ function findIndex(arr, str, count = 0) {  // count stays as a default parameter
     }
 	return findIndex(arr, str, count + 1);
 }
+
+/*
+Reverse String
+Return a copy of a string, reversed:
+
+revString("porcupine") // 'enipucrop'
+*/
+function revString(str){
+    // Base case
+    if(str.length === 0){
+        return;
+    } 
+    if(str.length === 1){
+        return str;
+    }
+    // normal case
+    let temp = str[str.length - 1];
+    str[str.length - 1] = str[0];
+    str[0] = temp;
+    return str[str.length - 1] + revString(str.slice(1, str.length - 1)) + str[0];
+}
+// console.log(revString("porcupine"));
