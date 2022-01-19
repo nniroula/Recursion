@@ -32,3 +32,27 @@ function longest(arr){
 
 // console.log(longest(["hello", "hi", "hola"])); 
 // console.log(longest([]));
+
+/*
+Every Other Character
+Write a function that returns a string of every other character:
+
+everyOther("hello")  // "hlo"
+*/
+
+function everyOther(str){
+    let n = 0;
+    if(str.length === 0){
+        return;
+    }
+    if (str.length === 1){
+        return str[0]; 
+    }
+    if(str.length === 2){
+        return str[0];
+    }
+  
+    // return str[0] + everyOther(str.slice(2, 3));
+    return str[0] + everyOther(str.slice(n + 2));
+}
+console.log(everyOther("hello") );
