@@ -121,3 +121,54 @@ function revString(str){
     return str[str.length - 1] + revString(str.slice(1, str.length - 1)) + str[0];
 }
 // console.log(revString("porcupine"));
+
+/*
+Gather Strings
+Given an object, return an array of all the values in the object that are strings:
+
+let nestedObj = {
+  firstName: "Lester",
+  favoriteNumber: 22,
+  moreData: {
+    lastName: "Testowitz"
+  },
+  funFacts: {
+    moreStuff: {
+      anotherNumber: 100,
+      deeplyNestedString: {
+        almostThere: {
+          success: "you made it!"
+        }
+      }
+    },
+    favoriteString: "nice!"
+  }
+};
+
+gatherStrings(nestedObj) // ["Lester", "Testowitz", "you made it!", "nice!"];
+*/
+
+function gatherStrings(obj) {
+	const newArr = [];
+	for (let key in obj) {
+		if (typeof obj[key] === 'string') newArr.push(obj[key]);
+		if (typeof obj[key] === 'object') newArr.push(...gatherStrings(obj[key]));
+	}
+	return newArr;
+}
+
+function binarySearch(
+	arr,
+	val,
+	left = 0,
+	right = arr.length,
+	mid = Math.floor((left + right) / 2)
+) {
+	if (left > right) return -1;
+	if (arr[mid] === val) return mid;
+	if (arr[mid] > val) {
+		return binarySearch(arr, val, left, mid - 1);
+	} else {
+		return binarySearch(arr, val, mid + 1, right);
+	}
+}
