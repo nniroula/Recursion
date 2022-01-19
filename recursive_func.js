@@ -15,3 +15,20 @@ function product(arr){
 }
 let a = [2, 3, 4];
 // console.log(product(a));
+
+/* 
+Longest Word
+Given a list of words, return the length of the longest:
+
+longest(["hello", "hi", "hola"])  // 5
+*/
+
+function longest(arr){
+    if (arr.length === 0){
+        return 0;
+    }
+    return Math.max(arr[0].length, longest(arr.slice(1)));
+}
+
+// console.log(longest(["hello", "hi", "hola"])); 
+// console.log(longest([]));
